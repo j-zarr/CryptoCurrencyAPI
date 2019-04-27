@@ -216,7 +216,7 @@ $(".searchArea").on('click', 'button', function () {
 //  if user wants to search from about/live reports page, display coins so accessible, if user starts to type in input field
 //  + clear input value when click About/LR buttons (added in event callback functions)
 $('#searchInput').on('input', function () {
-    if ($('.card')) {
+    if ($('.card')[0]) {
         return;
     }
       $('button').removeClass('selected');
