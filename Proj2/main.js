@@ -196,6 +196,7 @@ $(".searchArea").on('click', 'button', function () {
         $('div:contains("' + searchVal + '")').show();
         $('.symbol').removeClass('lowercase');
         $('.symbol').addClass('uppercase');
+        $('#search').removeClass('selected');
         $('#searchInput').val("").focus();
 
         if ($('div:contains("' + searchVal + '")').length < 1) {
