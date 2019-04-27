@@ -1,0 +1,13 @@
+
+property names for more info details 
+
+
+"image": {
+
+
+
+"market_data": {
+        "current_price": {
+            "ils":
+             "usd":
+             "eur":

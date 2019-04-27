@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Project 2</title>
+
+</head>
+
+<body>
+  <!-- <div class="container-fluid">  -->
+
+
+
+        <header class="heading">
+            <h1>Cryptonite</h1>
+            <img id="crypt" src="images/crypto.jpg">
+        </header>
+
+        <br>
+
+
+        <nav class="navField">
+            <ul>
+                <span class="navBtns">
+                    <li><button id="home" title="all available coins">Home</button></li>
+                    <li><button id="reports" title="select up 5 coins for reports">Live Reports</button></li>
+                    <li><button class="about" id="about" title="project description">About</button></li>
+                </span>
+                <span class="searchArea">
+                    <li> <input id="searchInput" type="text" placeholder="Coin Search" autofocus></li>
+                    <li> <button id="search">Search</button></li>
+                </span>
+            </ul>
+        </nav>
+
+        <br>
+
+        <div id="hr">
+            <hr>
+        </div>
+
+        <div class="loadIcon" style="display:none;"></div>
+
+        <div id="results"></div>
+
+   <!-- </div> -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o"
+        crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
