@@ -174,7 +174,6 @@ $(".searchArea").on('click', 'button', function () {
     //if no value entered alert user
     if ($('#searchInput').val() === "") {
 
-       
         alert("No coin entered, please enter a coin to search.")
         $(this).removeClass('selected');
         $('#searchInput').focus();
@@ -217,15 +216,9 @@ $(".searchArea").on('click', 'button', function () {
 //  if user wants to search from about/live reports page, display coins so accessible, if user starts to type in input field
 //  + clear input value when click About/LR buttons (added in event callback functions)
 $('#searchInput').on('input', function () {
-    if ($('#about').hasClass("selected") || $('#reports').hasClass("selected") || $('#search').removeClass('selected')) {
-        $('#search').removeClass('selected');
-        $('#about').removeClass('selected');
-        $('#reports').removeClass('selected');
+      $('button').removeClass('selected');
         displayCoins();
-
-    }
 });
-
 
 
 //about button clicked
