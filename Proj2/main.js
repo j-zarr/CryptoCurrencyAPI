@@ -4,7 +4,7 @@ $('button').on('click keyup', function (event) {
     //unless click search when no value entered- keep previous button selected- 
     //(so will display coins if type in search field as noted in later functions)
     if ($(this).text() === "Search" && $('#searchInput').val().length < 1) {
-        return
+        return;
     }
     else {
         $('button').removeClass('selected');
@@ -13,19 +13,23 @@ $('button').on('click keyup', function (event) {
     if (event.keyCode === 9) { //tab key should also highlight selected button
         $('button').removeClass('selected');
         $(this).addClass('selected');
-        $('#search').on('keyup', function (event) {
-            if (event.keyCode === 9) {
-                $('button').removeClass('selected');
-                $('#search').addClass('selected');
-            }
-        });
-        $('.switch').on('keyup', function (event) {
-            if (event.keyCode === 9) {
-                $('#search').removeClass('selected');
-            }
-        });
     }
-
+    $('#searchInput').on('keyup', function (event) {
+        if (event.keyCode === 9) {
+            $('button').removeClass('selected');
+        }
+    });
+    $('#search').on('keyup', function (event) {
+        if (event.keyCode === 9) {
+            $('button').removeClass('selected');
+            $('#search').addClass('selected');
+        }
+    });
+    $('.switch').on('keyup', function (event) {
+        if (event.keyCode === 9) {
+            $('#search').removeClass('selected');
+        }
+    });
 });
 
 
