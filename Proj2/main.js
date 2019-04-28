@@ -462,14 +462,13 @@ function loadReports() {
 
             $.each(responseDetails, function (i, price) {
 
-                /*
-                // changed coins on page to 400-500 instead of 350-450 so don't get errors/empty object
-                //need to account for error (response seemed to only throw error for BFF, otherwise returns empty object)
+                 //need to account for error message (response throws error for a few coins, & sometimes returns empty object)
                 if (i === 'Response') {
                     i = responseDetails.Message;
                     coinLabelArr.push(i, '', '', '', '');
+                    price.USD = '';
                 }   
-                */
+                
                 coinLabelArr.push(i);
                 priceDPsArr.push(price.USD);
 
