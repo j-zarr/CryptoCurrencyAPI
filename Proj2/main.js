@@ -62,7 +62,7 @@ function displayCoins() {
         $.each(partialCoins, function (i, coin) {
             coinsHTML += `<div class="card">
                                 <label class="switch" title="select for live reports">
-                                  <input type="checkbox" class="checkbox" name=${coin.name.toLowerCase()} onchange="toggleSelected(event)">
+                                  <input type="checkbox" class="checkbox" name=${coin.name.replace(/\s+/g, '-').toLowerCase()} onchange="toggleSelected(event)">
                                   <span class="slider round"></span>
                                 </label>
                                 <p class="id">${coin.id}</p>
