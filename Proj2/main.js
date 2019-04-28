@@ -181,7 +181,7 @@ $(".searchArea").on('click', 'button', function () {
         alert("No coin entered, please enter a coin to search.")
         $(this).removeClass('selected');
         $('#searchInput').focus();
-
+        return;
 
     } else if ($('#searchInput').val().length > 1) {
         $(this).addClass('selected');
