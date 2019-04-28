@@ -32,6 +32,20 @@ $('button').on('click keyup', function (event) {
     });
 });
 
+//trigger search button if press enter from input field
+$('#searchInput').on('keyup', function (event) {
+    if (event.keyCode === 13) {
+
+        if ($('#searchInput').val() === "") {
+            return;
+        }
+        else {
+            $('#search').addClass('selected')
+                .trigger('click');
+        }
+    }
+});
+
 
 // function to display coins from get request
 function displayCoins() {
@@ -156,20 +170,6 @@ function goBack(event) {
     $(event.target).parent().parent().parent().find('.expander').html('');
 }
 
-
-//trigger search button if press enter from input field
-$('#searchInput').on('keyup', function (event) {
-    if (event.keyCode === 13) {
-
-        if ($('#searchInput').val() === "") {
-            return;
-        }
-        else {
-            $('#search').addClass('selected')
-                .trigger('click');
-        }
-    }
-});
 
 
 // search field button clicked 
