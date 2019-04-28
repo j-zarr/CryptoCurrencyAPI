@@ -464,7 +464,10 @@ function loadReports() {
 
                  //need to account for error message (response throws error for a few coins, & sometimes returns empty object)
                 if (i === 'Response') {
-                    i = responseDetails.Message;
+                    let j = responseDetails.Message;
+                    let stringA= j.substring(0, 21);
+                    let stringB = j.substring(42);
+                    i = stringA + stringB;
                     coinLabelArr.push(i, '', '', '', '');
                     price.USD = '';
                 }   
