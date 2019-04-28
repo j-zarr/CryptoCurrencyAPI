@@ -513,7 +513,7 @@ function loadReports() {
 
 
             //build chart
-            new Chart(document.getElementById("lineChart"), {
+             new Chart ($('#lineChart'),{
                 type: 'line',
                 data: {
                     labels: timeArr,
