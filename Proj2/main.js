@@ -290,6 +290,15 @@ function toggleSelected(event) {
         });
     }
 
+    //in case click About in the middle, reset toggles
+    $('button').click(function () {
+        if ($(this).text() !== 'Live Reports'){
+        coinArr.length = 0;
+        $('.checkbox').prop('checked') === false;   
+      }
+    });
+    
+    
     let modalBox =
         `<div class="modalContainer">
                 <div class="modal">
