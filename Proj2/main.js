@@ -644,7 +644,9 @@ function loadReports() {
 
         //if click a button or type in search field, clear interval and exit chart
         $('button').click(function () {
+            if ($(this).text() !== 'Live Reports'){
             clearInterval(interval);
+         }
         });
 
         $('#searchInput').on('input', function () {
