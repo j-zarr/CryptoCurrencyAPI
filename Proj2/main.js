@@ -398,7 +398,6 @@ $('#reports').click(function () {
         return;
     }
     
-    $('.loadIcon').show();
     $('#searchInput').val('');
 
     loadReports();
@@ -406,7 +405,6 @@ $('#reports').click(function () {
 
 
 function loadReports() {
-    $('.loadIcon').show();
     //if no toggles selected, alert user and return
     if (coinArr.length < 1) {
 
@@ -415,7 +413,8 @@ function loadReports() {
         $('.loadIcon').hide();
         return;
     }
-
+    
+     $('.loadIcon').show();
 
     let coinsForReport = '';
     let finalCoinsForReport = '';
