@@ -262,6 +262,9 @@ $("#about").click(function () {
 
     //if click reports in middle, make coins accesible
     $('#reports').click(function () {
+        if ($('#lineChart')[0]){
+            return;
+        }
         displayCoins();
     })
 
