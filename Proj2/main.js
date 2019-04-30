@@ -392,19 +392,19 @@ function updateList() {
 
 //live reports clicked
 $('#reports').click(function () {
-    
-    //if already on live report chart, return 
-    if ($('#lineChart')[0]){
-        return;
-    }
-    
+     
     $('#searchInput').val('');
-
     loadReports();
 });
 
 
 function loadReports() {
+    
+     //if already on live report chart, return 
+    if ($('#lineChart')[0]){
+        return;
+    }
+    
     //if no toggles selected, alert user and return
     if (coinArr.length < 1) {
 
