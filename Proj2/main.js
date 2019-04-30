@@ -267,10 +267,10 @@ $("#about").click(function () {
 
 });
 
-
-//toggles checked
+//array used with toggle, modal, and report functions
 let coinArr = [];
 
+//toggles checked
 function toggleSelected(event) {
 
     if ($(event.target).prop('checked')) {
