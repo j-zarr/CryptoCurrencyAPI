@@ -107,7 +107,6 @@ function showInfo(event) {
 
     //retrieve from session storage if within 2 minutes or less (instead of new get request)
     let today = new Date();
-    //let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let time = (today.getHours() * 60 * 60) + (today.getMinutes() * 60) + today.getSeconds();
     let obj;
     let storageObj;
