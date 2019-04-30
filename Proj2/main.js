@@ -393,6 +393,12 @@ function updateList() {
 
 //live reports clicked
 $('#reports').click(function () {
+    
+    //if already on live report chart, return 
+    if ($('#lineChart')[0]){
+        return;
+    }
+    
     $('.loadIcon').show();
     $('#searchInput').val('');
 
