@@ -576,7 +576,9 @@ function loadReports() {
                         position: 'right',
                         labels: {
                             fontColor: 'black',
-                            fontStyle: "bold"
+                            fontStyle: "bold",
+                            filter: function(item, data) {
+                                 return  item.text == null       
                         }
                     },
                     responsive: true,
