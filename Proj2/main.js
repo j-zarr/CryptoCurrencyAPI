@@ -578,7 +578,7 @@ function loadReports() {
                             fontColor: 'black',
                             fontStyle: "bold",
                             filter: function(item, data) {
-                                 return  item.text == null 
+                                 return  item.text !== null 
                             }
                         }
                     },
