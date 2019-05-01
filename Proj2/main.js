@@ -464,8 +464,6 @@ function loadReports() {
     let coin3 = '';
     let coin4 = '';
     let coin5 = '';
-
-     $('.loadIcon').show();
     
     //set interval to send get request every 2 seconds
     let interval = setInterval(twoSeconds, 2000);
@@ -526,7 +524,7 @@ function loadReports() {
 
 
             let canvas = `<section><canvas id="lineChart"></canvas></section>`
-            $('#results').html(canvas); //add to DOM
+            $('#results').html(canvas).fadeIn(); //add to DOM
             $('.loadIcon').show();
 
 
