@@ -11,3 +11,11 @@ property names for more info details
             "ils":
              "usd":
              "eur":
+             
+             
+             
+             -------------------
+
+Error from cryptocomapre API-
+
+{"Response":"Error","Message":"There is no data for any of the toSymbols BFF .","HasWarning":true,"Type":2,"RateLimit":{},"Data":{},"Warning":"There is no data for the toSymbol/s BFF ","ParamWithError":"fsyms"}
