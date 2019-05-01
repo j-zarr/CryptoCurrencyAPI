@@ -573,10 +573,13 @@ function loadReports() {
                         backgroundColor: '#FFC300',
                         borderColor: '#FFC300',
                         fill: false
-                    }
-                    ]
+                    }]
                 },
                 options: {
+                    events: ['mousemove'], // this is needed to fire onHover 
+                    onHover: (event, chartElement) => {
+                        event.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                    },
                     animation: {
                         duration: 0
                     },
