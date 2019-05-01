@@ -204,7 +204,7 @@ $(".searchArea").on('click', 'button', function () {
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('.symbol').removeClass('lowercase');
             $('.symbol').addClass('uppercase');
-            $('.card').show().fadeIn(2000);
+            $('.card').fadeIn(2000);
             alert('Coin not in database. Try searching another coin or scroll to see available coins.');
             $('#search').removeClass('selected');
             $('#searchInput').focus();
