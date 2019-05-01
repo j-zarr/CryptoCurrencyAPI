@@ -172,7 +172,7 @@ function goBack(event) {
 
 
 // search field button clicked 
-$(".searchArea").on('click', 'button', function (e) {
+$(".searchArea").on('click', 'button', function () {
 
     //if no value entered alert user
     if ($('#searchInput').val() === "") {
@@ -204,8 +204,9 @@ $(".searchArea").on('click', 'button', function (e) {
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('.symbol').removeClass('lowercase');
             $('.symbol').addClass('uppercase');
-            $('.card').fadeIn(2000);
-            e.stopImmediatePropagation();
+            if ($('.card').length < 100){
+              $('.card').fadeIn(2000);
+              }
             alert('Coin not in database. Try searching another coin or scroll to see available coins.');
             $('#search').removeClass('selected');
             $('#searchInput').focus();
