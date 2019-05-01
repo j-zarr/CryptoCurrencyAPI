@@ -261,8 +261,7 @@ $("#about").click(function () {
     $('#name').prepend(photo);
 
     //if click reports in middle, make coins accesible
-    $('#reports').click(function (event)
-     event.preventDefault();
+    $('#reports').click(function ()
      alert('To select coins for reports click the Home button');
      return;
   //      if ($('#lineChart')[0]){
@@ -416,8 +415,10 @@ $('#reports').click(function () {
 
 function loadReports() {
    
-     //if already on live report chart, return 
-    if ($('#lineChart')[0]){
+     //if already on live report chart or on about page, return 
+    if ($('#lineChart')[0] || if ($('.aboutContainer')[0]){
+  //          return;
+   //     }){
         return;
     }
     
