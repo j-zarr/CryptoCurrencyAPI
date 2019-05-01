@@ -465,6 +465,8 @@ function loadReports() {
     let coin4 = '';
     let coin5 = '';
 
+     $('.loadIcon').show();
+    
     //set interval to send get request every 2 seconds
     let interval = setInterval(twoSeconds, 2000);
 
