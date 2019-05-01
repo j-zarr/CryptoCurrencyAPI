@@ -262,7 +262,9 @@ $("#about").click(function () {
 
     //if click reports in middle, make coins accesible
     $('#reports').click(function(){
-     if ($('.aboutContainer')){
+     if ($('.aboutContainer')[0]){
+        e.stopImmediatePropagation();
+        e.preventDefault();
         alert('To select coins for reports click the Home button');
         $('#reports').removeClass('selected');
         $('#about').addClass('selected');
