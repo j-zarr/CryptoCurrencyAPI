@@ -259,7 +259,7 @@ $("#about").click(function () {
     $('.loadIcon').hide();
     $('#results').html(about);
     $('#name').prepend(photo);
-
+/*
     //if click reports in middle, make coins accesible
     $('#reports').click(function () {
          $('.loadIcon').show();
@@ -268,7 +268,7 @@ $("#about").click(function () {
         }
         displayCoins();
     })
-
+*/
 });
 
 //array used with toggle, modal, and report functions
@@ -525,7 +525,7 @@ function loadReports() {
 
 
             let canvas = `<section><canvas id="lineChart"></canvas></section>`
-            $('#results').html(canvas).fadeIn(); //add to DOM
+            $('#results').fadeIn().html(canvas); //add to DOM
             $('.loadIcon').show();
 
 
