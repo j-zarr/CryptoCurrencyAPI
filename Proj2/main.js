@@ -75,7 +75,7 @@ function displayCoins() {
 
         coinsHTML += '</div>'
 
-        $('.loadIcon').hide();
+        $('.loadIcon').fadeOut();
         $('#results').hide().html(coinsHTML).fadeIn(2000);
 
     });
