@@ -529,9 +529,8 @@ function loadReports() {
             }
 
 
-
             let canvas = `<section><canvas id="lineChart"></canvas></section>`
-            $('#results').fadeIn().html(canvas); //add to DOM
+            $('#results').hide().html(canvas).fadeIn(3000); //add to DOM
             $('.loadIcon').show();
 
 
