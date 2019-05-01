@@ -190,7 +190,7 @@ $(".searchArea").on('click', 'button', function () {
 
     //allow user to search by coin name or symbol
     $('.cardsContainer').each(function () {
-        $('.card').fadeOut(2000);
+        $('.card').hide();
         $('.symbol').removeClass('uppercase');
         $('.symbol').addClass('lowercase');
 
