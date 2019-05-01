@@ -259,17 +259,20 @@ $("#about").click(function () {
     $('.loadIcon').hide();
     $('#results').html(about);
     $('#name').prepend(photo);
-/*
+
     //if click reports in middle, make coins accesible
-    $('#reports').click(function () {
-         $('.loadIcon').show();
-        if ($('#lineChart')[0]){
-            return;
-        }
-        displayCoins();
+    $('#reports').click(function (event)
+     event.preventDefault();
+     alert('To select coins for reports click the Home button');
+     return;
+  //      if ($('#lineChart')[0]){
+  //          return;
+   //     }
+  //      displayCoins();
     })
 */
 });
+
 
 //array used with toggle, modal, and report functions
 let coinArr = [];
@@ -421,7 +424,7 @@ function loadReports() {
     //if no toggles selected, alert user and return
     if (coinArr.length < 1) {
 
-        alert('No coins selected. To select coins for reports, please use the toggle button for the desired coins below.')
+        alert('No coins selected. To select coins for reports, use the toggle button for the desired coins below.')
         $('#reports').removeClass('selected');
         $('.loadIcon').hide();
         return;
