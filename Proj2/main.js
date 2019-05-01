@@ -262,12 +262,14 @@ $("#about").click(function () {
 
     //if click reports in middle, make coins accesible
     $('#reports').click(function(){
+     if ($('.aboutContainer')[0]){
      alert('To select coins for reports click the Home button');
      return;
   //      if ($('#lineChart')[0]){
   //          return;
    //     }
   //      displayCoins();
+     }
     })
 });
 
