@@ -411,7 +411,7 @@ $('#reports').click(function () {
 
 
 function loadReports() {
-    
+     $('.loadIcon').show();
      //if already on live report chart, return 
     if ($('#lineChart')[0]){
         return;
@@ -657,7 +657,6 @@ function loadReports() {
         //if click a button or type in search field, clear interval and exit chart
         $('button').click(function () {
             if ($(this).text() !== 'Live Reports'){
-              $('.loadIcon').show();
               clearInterval(interval);
          }
         });
