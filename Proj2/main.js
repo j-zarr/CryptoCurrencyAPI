@@ -411,7 +411,7 @@ $('#reports').click(function () {
 
 
 function loadReports() {
-     $('.loadIcon').show();
+   
      //if already on live report chart, return 
     if ($('#lineChart')[0]){
         return;
