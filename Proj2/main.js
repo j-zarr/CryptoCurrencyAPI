@@ -261,7 +261,7 @@ $("#about").click(function () {
     $('#name').prepend(photo);
 
     //if click reports in middle, make coins accesible
-    $('#reports').click(function(){
+    $('#reports').click(function(e){
      if ($('.aboutContainer')[0]){
         e.stopImmediatePropagation();
         e.preventDefault();
