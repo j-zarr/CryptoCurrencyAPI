@@ -270,7 +270,6 @@ $("#about").click(function () {
    //     }
   //      displayCoins();
     })
-*/
 });
 
 
