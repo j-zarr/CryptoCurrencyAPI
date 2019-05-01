@@ -264,7 +264,7 @@ $("#about").click(function () {
     $('#reports').click(function(e){
      if ($('.aboutContainer')[0]){
         e.stopImmediatePropagation();
-        e.preventDefault();
+       // e.preventDefault();
         alert('To select coins for reports click the Home button');
         $('#reports').removeClass('selected');
         $('#about').addClass('selected');
