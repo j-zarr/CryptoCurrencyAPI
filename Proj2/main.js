@@ -530,7 +530,7 @@ function loadReports() {
 
 
             let canvas = `<section><canvas id="lineChart"></canvas></section>`
-            $('#results').hide().html(canvas).fadeIn(3000); //add to DOM
+            $('#results').html(canvas); //add to DOM
             $('.loadIcon').show();
 
 
