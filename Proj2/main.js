@@ -76,7 +76,7 @@ function displayCoins() {
         coinsHTML += '</div>'
 
         $('.loadIcon').hide();
-        $('#results').hide().html(coinsHTML).fadeIn(slow);
+        $('#results').hide().html(coinsHTML).fadeIn('slow');
 
     });
 }
@@ -204,7 +204,7 @@ $(".searchArea").on('click', 'button', function () {
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('.symbol').removeClass('lowercase');
             $('.symbol').addClass('uppercase');
-            $('.card').show().fadeIn(slow);
+            $('.card').show().fadeIn('slow');
             alert('Coin not in database. Try searching another coin or scroll to see available coins.');
             $('#search').removeClass('selected');
             $('#searchInput').focus();
@@ -257,7 +257,7 @@ $("#about").click(function () {
     </div>`;
 
     $('.loadIcon').hide();
-    $('#results').hide().html(about).fadeIn(slow);
+    $('#results').hide().html(about).fadeIn('slow');
     $('#name').prepend(photo);
 
     //if click reports in middle, make coins accesible
