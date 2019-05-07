@@ -54,7 +54,8 @@ function displayCoins() {
     const coinsAPI = "https://api.coingecko.com/api/v3/coins/list";
 
     $.get(coinsAPI, function (response) {
-        let objCoins = JSON.parse(JSON.stringify(response));
+        let objCoins = response;
+      // let objCoins = JSON.parse(JSON.stringify(response));
         const partialCoins = objCoins.slice(400, 500);
 
         let coinsHTML = `<div class="cardsContainer">`;
@@ -485,7 +486,8 @@ function loadReports() {
         priceDPsArr.length = 0
 
         $.get(reportsAPI, function (response) {
-            let responseDetails = JSON.parse(JSON.stringify(response));
+            let responseDetails = response;
+          // let responseDetails = JSON.parse(JSON.stringify(response));
 
             $.each(responseDetails, function (i, price) {
 
