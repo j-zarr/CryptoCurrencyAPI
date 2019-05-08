@@ -63,7 +63,8 @@ body{
     margin-top: 30px;
     width: auto;
     height: 100px;
-    background-color: rgba(128, 142, 168, 0.8);
+    background-color: slategrey;
+  /* background-color: rgba(128, 142, 168, 0.8); */
   /* background-color: #08b33bb3; */
     border-radius: 15px;
     color: white;
@@ -86,11 +87,9 @@ h1{
     left: 50%;
     top: 50%;
     transform: translateY(-50%) translateX(-50%);
-    border: 5px solid rgba(128, 142, 168, 0.8); 
+    border: 5px solid slategrey; 
+  /* border: 5px solid rgba(128, 142, 168, 0.8); */
   /* border: 5px solid #08b33bb3; */
-  /* margin-left: 30px;*/
-  /* top: -20%; */
-  /* left: 44%;*/
 }
 
 
