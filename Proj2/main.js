@@ -537,7 +537,6 @@ function loadReports() {
 
             let canvas = `<section><canvas id="lineChart"></canvas></section>`
             $('#results').html(canvas); //add to DOM
-            $('.loadIcon').show();
 
 
             //build chart
