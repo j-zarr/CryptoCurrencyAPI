@@ -55,7 +55,7 @@ function displayCoins() {
 
     $.get(coinsAPI, function (response) {
         let objCoins = response;
-      // let objCoins = JSON.parse(JSON.stringify(response));
+        // let objCoins = JSON.parse(JSON.stringify(response));
         const partialCoins = objCoins.slice(400, 500);
 
         let coinsHTML = `<div class="cardsContainer">`;
@@ -208,7 +208,7 @@ $(".searchArea").on('click', 'button', function () {
             alert('Coin not in database. Try searching another coin or scroll to see available coins.');
             if (($('.cardsContainer')).is(':visible')) {
                 $('.card').show();
-            } else {     
+            } else {
                 $('.card').fadeIn(2000);
             }
             $('#search').removeClass('selected');
@@ -227,8 +227,9 @@ $('#searchInput').on('input', function () {
     if ($('.card')[0]) {
         return;
     }
-      $('button').removeClass('selected');
-        displayCoins();
+    $('#about').removeClass('selected');
+    $('#reports').removeClass('selected');
+    displayCoins();
 });
 
 
@@ -266,18 +267,18 @@ $("#about").click(function () {
     $('#name').prepend(photo);
 
     //if click reports in middle, make coins accesible
-    $('#reports').click(function(e){
-     if ($('.aboutContainer')[0]){
-        e.stopImmediatePropagation();
-        alert('To select coins for reports click the Home button');
-        $('#reports').removeClass('selected');
-        $('#about').addClass('selected');
-        return;
-  //      if ($('#lineChart')[0]){
-  //          return;
-   //     }
-  //      displayCoins();
-       }
+    $('#reports').click(function (e) {
+        if ($('.aboutContainer')[0]) {
+            e.stopImmediatePropagation();
+            alert('To select coins for reports click the Home button');
+            $('#reports').removeClass('selected');
+            $('#about').addClass('selected');
+            return;
+            //      if ($('#lineChart')[0]){
+            //          return;
+            //     }
+            //      displayCoins();
+        }
     })
 });
 
@@ -307,13 +308,13 @@ function toggleSelected(event) {
 
     //in case click About in the middle, reset toggles
     $('button').click(function () {
-        if ($(this).text() !== 'Live Reports'){
-        coinArr.length = 0;
-        $('.checkbox').prop('checked') === false;   
-      }
+        if ($(this).text() === 'About') {
+            coinArr.length = 0;
+            $('.checkbox').prop('checked') === false;
+        }
     });
-    
-    
+
+
     let modalBox =
         `<div class="modalContainer">
                 <div class="modal">
@@ -416,19 +417,19 @@ function updateList() {
 
 //live reports clicked
 $('#reports').click(function () {
-     
+
     $('#searchInput').val('');
     loadReports();
 });
 
 
 function loadReports() {
-   
-     //if already on live report chart page/abbout page, return   
-    if ($('#lineChart')[0] || $('.aboutContainer')[0]){
+
+    //if already on live report chart page/about page, return   
+    if ($('#lineChart')[0] || $('.aboutContainer')[0]) {
         return;
     }
-    
+
     //if no toggles selected, alert user and return
     if (coinArr.length < 1) {
 
@@ -437,16 +438,21 @@ function loadReports() {
         $('.loadIcon').hide();
         return;
     }
-    
-     $('.loadIcon').show();
 
+    $('.loadIcon').show();
+
+    let compareArr = [];
     let coinsForReport = '';
     let finalCoinsForReport = '';
 
     //get query string for end of url based on symbol attached to specific toggle
     $('.checkbox').each(function () {
         if ($(this).prop('checked') === true) {
-            coinsForReport += $(this).parent().parent().find($('.symbol')).text().toUpperCase();
+
+            let symbol = $(this).parent().parent().find($('.symbol')).text().toUpperCase();
+            compareArr.push(symbol); //to use to compare with coins not in API , for note in chart
+
+            coinsForReport += symbol
             if (coinArr.length > 1) {
                 coinsForReport += ',';
                 finalCoinsForReport = coinsForReport.substring(0, coinsForReport.length - 1);
@@ -464,6 +470,8 @@ function loadReports() {
     let timeArr = [];
 
 
+    let responseArr = []; //array to compare with coinArr for coins not in API
+    
     //fields for chart
     let dataPoints1 = [];
     let dataPoints2 = [];
@@ -476,31 +484,52 @@ function loadReports() {
     let coin3 = '';
     let coin4 = '';
     let coin5 = '';
-    
+    let note = '';
+
+
     //set interval to send get request every 2 seconds
     let interval = setInterval(twoSeconds, 2000);
 
     function twoSeconds() {
         //on each get reset array
-        coinLabelArr.length = 0
-        priceDPsArr.length = 0
+        coinLabelArr.length = 0;
+        priceDPsArr.length = 0;
+        responseArr.length = 0;
+
 
         $.get(reportsAPI, function (response) {
             let responseDetails = response;
-          // let responseDetails = JSON.parse(JSON.stringify(response));
+            // let responseDetails = JSON.parse(JSON.stringify(response));
 
             $.each(responseDetails, function (i, price) {
 
-                 //need to account for error message (response throws error for a few coins, & sometimes returns empty object)
-                if (i === 'Response') {
+                 // account for error message
+                if (i === 'Response') {   
                     let j = responseDetails.Message;
-                    let stringA= j.substring(0, 20);
+                    let stringA = j.substring(0, 20);
                     let stringB = j.substring(42);
-                    i = stringA + ': ' + stringB;
-                    coinLabelArr.push(i, '', '', '', '');
+                    let message = stringA + ': ' + stringB;
+                    coinLabelArr.push('', '', '', '', '');
                     price.USD = '';
-                }   
-                
+                    note = message;
+                }
+
+                //account for coins not found in API (empty object returned)                        
+                responseArr.push(i);
+                if (note.length > 1 ){
+                    return;
+                } else {
+                    if (compareArr.length > responseArr.length) {
+                        let noData = [];
+                        for (let x = 0; x < compareArr.length; x++) {
+                            if (responseArr.indexOf(compareArr[x]) === -1) {
+                                noData.push(compareArr[x]);
+                                note = `Data not availabe for:  ${noData} `;
+                            }
+                        }
+                    }
+                }
+
                 coinLabelArr.push(i);
                 priceDPsArr.push(price.USD);
 
@@ -523,9 +552,11 @@ function loadReports() {
                     coin5 = coinLabelArr[4];
                     dataPoints5.push(priceDPsArr[4]);
                 }
+
             }); //end of loop
 
-            //create time lables for chart
+
+            //create time labels for chart
             let today = new Date();
             let reportsTime = today.toLocaleTimeString();
             //let reportsTime = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -540,7 +571,7 @@ function loadReports() {
 
 
             //build chart
-             new Chart ($('#lineChart'),{
+            new Chart($('#lineChart'), {
                 type: 'line',
                 data: {
                     labels: timeArr,
@@ -574,6 +605,12 @@ function loadReports() {
                         backgroundColor: '#FFC300',
                         borderColor: '#FFC300',
                         fill: false
+                    },
+                    {
+                        label: note,
+                        backgroundColor: 'white',
+                        borderColor: 'white',
+                        fill: false
                     }]
                 },
                 options: {
@@ -585,7 +622,7 @@ function loadReports() {
                         duration: 0
                     },
                     tooltips: {
-                        mode: 'point'
+                        mode: 'point',
                     },
                     layout: {
                         padding: {
@@ -607,8 +644,8 @@ function loadReports() {
                         labels: {
                             fontColor: 'black',
                             fontStyle: "bold",
-                            filter: function(item, data) {
-                                 return  item.text !== ''
+                            filter: function (item, data) {
+                                return item.text !== ''
                             }
                         }
                     },
@@ -670,9 +707,9 @@ function loadReports() {
 
         //if click a button or type in search field, clear interval and exit chart
         $('button').click(function () {
-            if ($(this).text() !== 'Live Reports'){
-              clearInterval(interval);
-         }
+            if ($(this).text() !== 'Live Reports') {
+                clearInterval(interval);
+            }
         });
 
         $('#searchInput').on('input', function () {
@@ -684,9 +721,11 @@ function loadReports() {
 
     //reset selection (clear selected coins array), clear all chart arrays  
     coinArr.length = 0;
-
+    //compareArr.length = 0;
     timeArr.length = 0;
     coinLabelArr.length = 0;
     priceDPsArr.length = 0;
+    responseArr.length = 0;
+
 
 }// end of loadReports function
