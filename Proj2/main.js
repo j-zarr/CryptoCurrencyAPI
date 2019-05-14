@@ -508,17 +508,17 @@ function loadReports() {
                     let j = responseDetails.Message;
                     let stringA = j.substring(0, 20);
                     let stringB = j.substring(42);
-                    let message = stringA + ': ' + stringB;
+                    i = stringA + ': ' + stringB;
                     coinLabelArr.push('', '', '', '', '');
                     price.USD = '';
-                    note = message;
+                    note = i;
                 }
 
                 //account for coins not found in API (empty object returned)                        
                 responseArr.push(i);
-                if (note.length > 1 ){
-                    return;
-                } else {
+              //  if (note.length > 1 ){
+              //      return;
+              //  } else {
                     if (compareArr.length > responseArr.length) {
                         let noData = [];
                         for (let x = 0; x < compareArr.length; x++) {
@@ -528,7 +528,7 @@ function loadReports() {
                             }
                         }
                     }
-                }
+              //  }
 
                 coinLabelArr.push(i);
                 priceDPsArr.push(price.USD);
@@ -606,7 +606,7 @@ function loadReports() {
                         borderColor: '#FFC300',
                         fill: false
                     },
-                    {
+                    {   
                         label: note,
                         backgroundColor: 'white',
                         borderColor: 'white',
@@ -658,7 +658,7 @@ function loadReports() {
                                 fontColor: 'white',
                                 beginAtZero: false,
                                 min: '-1000',
-                                max: '7000',
+                                max: '9000',
                                 stepSize: '1000',
                                 fontSize: '14',
                                 callback: function (value) {
