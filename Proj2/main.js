@@ -551,6 +551,7 @@ function loadReports() {
                 if (coinLabelArr.length > 4) {
                     coin5 = coinLabelArr[4];
                     dataPoints5.push(priceDPsArr[4]);
+                     note = '';
                 }
 
             }); //end of loop
