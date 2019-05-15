@@ -213,6 +213,7 @@ $(".searchArea").on('click', 'button', function () {
          });
 
         if ($('div:contains("' + searchVal + '")').length < 1) {
+            $('#allCoins').hide();
             $('.symbol').removeClass('lowercase');
             $('.symbol').addClass('uppercase');
             alert('Coin not in database. Try searching another coin or scroll to see available coins.');
