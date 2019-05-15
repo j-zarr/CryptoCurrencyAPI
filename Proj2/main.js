@@ -527,19 +527,17 @@ function loadReports() {
 
                 //account for coins not found in API (empty object returned)                        
                 responseArr.push(i);
-              //  if (note.length > 1 ){
-              //      return;
-              //  } else {
+                     
                     if (compareArr.length > responseArr.length) {
                         let noData = [];
                         for (let x = 0; x < compareArr.length; x++) {
                             if (responseArr.indexOf(compareArr[x]) === -1) {
                                 noData.push(compareArr[x]);
-                                note = `Data not availabe for:  ${noData} `;
+                                note = `Data not availabe for:  ${noData} `; 
                             }
                         }
                     }
-              //  }
+                
 
                 coinLabelArr.push(i);
                 priceDPsArr.push(price.USD);
@@ -562,7 +560,6 @@ function loadReports() {
                 if (coinLabelArr.length > 4) {
                     coin5 = coinLabelArr[4];
                     dataPoints5.push(priceDPsArr[4]);
-                     note = '';
                 }
 
             }); //end of loop
