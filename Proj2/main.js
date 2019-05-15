@@ -533,7 +533,8 @@ function loadReports() {
                         for (let x = 0; x < compareArr.length; x++) {
                             if (responseArr.indexOf(compareArr[x]) === -1) {
                                 noData.push(compareArr[x]);
-                                note = `Data not availabe for:  ${noData} `; 
+                                noDataSpaced = noData.join(', ');
+                                note = `Data not availabe for:  ${noDataSpaced} `; 
                             }
                         }
                     }
