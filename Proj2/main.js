@@ -203,6 +203,14 @@ $(".searchArea").on('click', 'button', function () {
         $('.symbol').addClass('uppercase');
         $('#search').removeClass('selected');
         $('#searchInput').val("").focus();
+        
+         //allow to user to click for all coins -- so if select coins from search, still selected (vs. home button- refreshes)
+         $('#allCoins').show().click(function(){
+               $('.loadIcon').show();
+               $('#allCoins').hide();
+               $('.card').fadeIn(2000); 
+               $('.loadIcon').hide();
+         });
 
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('.symbol').removeClass('lowercase');
@@ -219,14 +227,6 @@ $(".searchArea").on('click', 'button', function () {
     });
 
     $('.loadIcon').hide();
-    //allow to user to click for all coins (so if selected coins from search, still selected)
-    $('#allCoins').show().click(function(){
-         $('.loadIcon').show();
-         $('#allCoins').hide();
-         $('.card').fadeIn(2000); 
-         $('.loadIcon').hide();
-    });
-
 }); //end cb
 
 
