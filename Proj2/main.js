@@ -90,6 +90,7 @@ $('document').ready(function () {
 
 // display coins when home button clicked
 $('#home').click(function () {
+    $('#allCoins').hide();
     displayCoins();
 });
 
@@ -210,9 +211,6 @@ $(".searchArea").on('click', 'button', function () {
                $('#allCoins').hide();
                $('.card').fadeIn(2000); 
                $('.loadIcon').hide();
-               $('button').click(function(){
-                 $('#allCoins').hide();
-              });
          });
 
         if ($('div:contains("' + searchVal + '")').length < 1) {
@@ -248,7 +246,7 @@ $('#searchInput').on('input', function () {
 
 //about button clicked
 $("#about").click(function () {
-
+     $('#allCoins').hide();
     //if user typed input value but clicked about button instead of search, clears search field.
     $('#searchInput').val('');
 
@@ -430,7 +428,7 @@ function updateList() {
 
 //live reports clicked
 $('#reports').click(function () {
-
+    $('#allCoins').hide();
     $('#searchInput').val('');
     loadReports();
 });
