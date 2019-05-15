@@ -224,7 +224,7 @@ $(".searchArea").on('click', 'button', function () {
          $('.loadIcon').show();
          $('#allCoins').hide();
          $('.card').fadeIn(2000); 
-         $('.loadIcon').show();
+         $('.loadIcon').hide();
     });
 
 }); //end cb
