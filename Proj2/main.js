@@ -217,6 +217,11 @@ $(".searchArea").on('click', 'button', function () {
     });
 
     $('.loadIcon').hide();
+    //allow to user to click for all coins (so if selected coins from search, still selected)
+    $('#allCoins').show().click(function(){
+         $('#allCoins').hide()
+        $('.card').fadeIn(2000);   
+    });
 
 }); //end cb
 
