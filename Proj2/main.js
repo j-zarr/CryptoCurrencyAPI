@@ -174,10 +174,12 @@ function goBack(event) {
 
 // search field button clicked 
 $(".searchArea").on('click', 'button', function () {
-
+    
     //if no value entered alert user
     if ($('#searchInput').val() === "") {
-
+        if ($(this).text() === 'All Coins'){
+            return;
+        } 
         alert("No coin entered, please enter a coin to search.")
         $(this).removeClass('selected');
         $('#searchInput').focus();
@@ -219,8 +221,10 @@ $(".searchArea").on('click', 'button', function () {
     $('.loadIcon').hide();
     //allow to user to click for all coins (so if selected coins from search, still selected)
     $('#allCoins').show().click(function(){
-         $('#allCoins').hide()
-        $('.card').fadeIn(2000);   
+         $('.loadIcon').show();
+         $('#allCoins').hide();
+         $('.card').fadeIn(2000); 
+         $('.loadIcon').show();
     });
 
 }); //end cb
