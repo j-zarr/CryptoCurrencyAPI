@@ -213,6 +213,7 @@ $(".searchArea").on('click', 'button', function () {
             $('.loadIcon').hide();
         });
 
+       
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('#allCoins').hide();
             $('.symbol').removeClass('lowercase');
@@ -428,7 +429,9 @@ function updateList() {
 
 //live reports clicked
 $('#reports').click(function () {
+    if (coinArr.length > 0) {
     $('#allCoins').hide();
+    }
     $('#searchInput').val('');
     loadReports();
 });
@@ -450,6 +453,7 @@ function loadReports() {
         return;
     }
 
+   
     $('.loadIcon').show();
 
     let compareArr = [];
