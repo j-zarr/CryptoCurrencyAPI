@@ -444,7 +444,7 @@ function loadReports() {
     //if no toggles selected, alert user and return
     if (coinArr.length < 1) {
 
-        alert('No coins selected. To select coins for reports, use the toggle button for the desired coins below.')
+        alert('No coins selected. To select coins for reports, use the toggle button for the desired coin/s below.')
         $('#reports').removeClass('selected');
         $('.loadIcon').hide();
         return;
