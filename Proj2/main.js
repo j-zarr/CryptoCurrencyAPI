@@ -437,7 +437,7 @@ $('#reports').click(function () {
 function loadReports() {
 
     //if already on live report chart page/about page, return   
-    if ($('#lineChart')[0]){  // || $('.aboutContainer')[0]) {
+    if ($('#lineChart')[0] || $('.aboutContainer')[0]) {
         return;
     }
 
