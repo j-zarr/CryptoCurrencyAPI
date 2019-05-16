@@ -175,12 +175,12 @@ function goBack(event) {
 
 // search field button clicked 
 $(".searchArea").on('click', 'button', function () {
-    
+
     //if no value entered alert user
     if ($('#searchInput').val() === "") {
-        if ($(this).text() === 'All Coins'){
+        if ($(this).text() === 'All Coins') {
             return;
-        } 
+        }
         alert("No coin entered, please enter a coin to search.")
         $(this).removeClass('selected');
         $('#searchInput').focus();
@@ -204,14 +204,14 @@ $(".searchArea").on('click', 'button', function () {
         $('.symbol').addClass('uppercase');
         $('#search').removeClass('selected');
         $('#searchInput').val("").focus();
-        
-         //allow to user to click for all coins -- so if select coins from search, still selected (vs. home button- refreshes)
-         $('#allCoins').fadeIn(2000).click(function(){
-               $('.loadIcon').show();
-               $('#allCoins').hide();
-               $('.card').fadeIn(2000); 
-               $('.loadIcon').hide();
-         });
+
+        //allow to user to click for all coins -- so if select coins from search, still selected (vs. home button- refreshes)
+        $('#allCoins').fadeIn(2000).click(function () {
+            $('.loadIcon').show();
+            $('#allCoins').hide();
+            $('.card').fadeIn(2000);
+            $('.loadIcon').hide();
+        });
 
         if ($('div:contains("' + searchVal + '")').length < 1) {
             $('#allCoins').hide();
@@ -246,7 +246,7 @@ $('#searchInput').on('input', function () {
 
 //about button clicked
 $("#about").click(function () {
-     $('#allCoins').hide();
+    $('#allCoins').hide();
     //if user typed input value but clicked about button instead of search, clears search field.
     $('#searchInput').val('');
 
@@ -482,7 +482,7 @@ function loadReports() {
 
 
     let responseArr = []; //array to compare with coinArr for coins not in API
-    
+
     //fields for chart
     let dataPoints1 = [];
     let dataPoints2 = [];
@@ -514,8 +514,8 @@ function loadReports() {
 
             $.each(responseDetails, function (i, price) {
 
-                 // account for error message
-                if (i === 'Response') {   
+                // account for error message
+                if (i === 'Response') {
                     let j = responseDetails.Message;
                     let stringA = j.substring(0, 20);
                     let stringB = j.substring(42);
@@ -524,21 +524,6 @@ function loadReports() {
                     price.USD = '';
                     note = i;
                 }
-
-                //account for coins not found in API (empty object returned)                        
-                responseArr.push(i);
-                     
-                    if (compareArr.length > responseArr.length) {
-                        let noData = [];
-                        for (let x = 0; x < compareArr.length; x++) {
-                            if (responseArr.indexOf(compareArr[x]) === -1) {
-                                noData.push(compareArr[x]);
-                                noDataSpaced = noData.join(', ');
-                                note = `Data not availabe for:  ${noDataSpaced} `; 
-                            }
-                        }
-                    }
-                
 
                 coinLabelArr.push(i);
                 priceDPsArr.push(price.USD);
@@ -561,6 +546,24 @@ function loadReports() {
                 if (coinLabelArr.length > 4) {
                     coin5 = coinLabelArr[4];
                     dataPoints5.push(priceDPsArr[4]);
+                }
+
+                //account for coins not found in API (empty object returned)                        
+                responseArr.push(i);
+
+                if (coin5.length > 0) {
+                    note = '';
+                } else {
+                    if (compareArr.length > responseArr.length) {
+                        let noData = [];
+                        for (let x = 0; x < compareArr.length; x++) {
+                            if (responseArr.indexOf(compareArr[x]) === -1) {
+                                noData.push(compareArr[x]);
+                                noDataSpaced = noData.join(', ');
+                                note = `Data not availabe for:  ${noDataSpaced} `;
+                            }
+                        }
+                    }
                 }
 
             }); //end of loop
@@ -616,7 +619,7 @@ function loadReports() {
                         borderColor: '#FFC300',
                         fill: false
                     },
-                    {   
+                    {
                         label: note,
                         backgroundColor: 'white',
                         borderColor: 'white',
