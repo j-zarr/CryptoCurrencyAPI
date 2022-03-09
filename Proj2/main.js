@@ -56,7 +56,7 @@ function displayCoins() {
     $.get(coinsAPI, function (response) {
         let objCoins = response;
         // let objCoins = JSON.parse(JSON.stringify(response));
-        const partialCoins = objCoins.slice(400, 500);
+        const partialCoins = objCoins.slice(1500, 2200);
 
         let coinsHTML = `<div class="cardsContainer">`;
 
@@ -675,8 +675,8 @@ function loadReports() {
                                 fontColor: 'white',
                                 beginAtZero: false,
                                 min: '-1000',
-                                max: '9000',
-                                stepSize: '1000',
+                                max: '50000',
+                                stepSize: '5000',
                                 fontSize: '14',
                                 callback: function (value) {
                                     return '$' + value;
